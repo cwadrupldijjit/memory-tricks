@@ -1,0 +1,11 @@
+<form [formGroup]="form">
+  <div>
+    <mat-radio-group formControlName="divisionType">
+      <mat-radio-button value="word">By word</mat-radio-button>
+      <mat-radio-button value="sentence">By sentence</mat-radio-button>
+      <mat-radio-button value="custom">Custom Sections</mat-radio-button>
+    </mat-radio-group>
+  </div>
+</form>
+
+{{ form.controls?.divisionType?.value }}
