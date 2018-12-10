@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { RemoveAPhraseService, IPhrase } from './remove-a-phrase.service';
 
 @Component({
   selector: 'app-remove-a-phrase',
@@ -7,15 +7,16 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./remove-a-phrase.component.scss']
 })
 export class RemoveAPhraseComponent implements OnInit {
-  public form: FormGroup;
+  public phrases: IPhrase[];
 
-  constructor(private _fb: FormBuilder) { }
+  constructor(
+    private removeAPhraseService: RemoveAPhraseService,
+  ) {}
 
   ngOnInit() {
-    this.form = this._fb.group({
-      phrase: [''],
-      divisionType: [''],
-    });
+    this.removeAPhraseService.getAllPhrases()
+      .then(phrases => {
+        this.phrases = phrases;
+      });
   }
-
 }

@@ -1,0 +1,16 @@
+<app-breadcrumb></app-breadcrumb>
+
+<p>{{ completionPercentage }}%</p>
+
+<mat-card
+    *ngFor="let fragment of phrase?.splits"
+    [class.flipped]="fragment.isFlipped"
+    [class.line]="phrase?.splitType == SplitTypes.line"
+    (click)="flip(fragment)"
+>
+  {{ fragment.text }}
+</mat-card>
+
+<div class="controls">
+  <button mat-button class="mat-accent" (click)="reset()">Reset</button>
+</div>

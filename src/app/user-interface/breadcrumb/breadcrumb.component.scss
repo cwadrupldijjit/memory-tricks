@@ -1,0 +1,23 @@
+:host {
+    display: block;
+}
+
+div {
+    display: inline-block;
+    
+    &:not(:last-child) {
+        margin-right: 1em;
+    }
+    
+    &:last-child span {
+        display: none;
+    }
+}
+
+a {
+    padding: 0 1em;
+}
+
+span {
+    margin-left: 1em;
+}

@@ -1,24 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatCardModule, MatDialogModule, MatButtonModule, MatRadioModule } from '@angular/material';
-
-const materialModules = [
+import {
   MatCardModule,
   MatDialogModule,
   MatButtonModule,
   MatRadioModule,
-];
+  MatInputModule,
+} from '@angular/material';
+import { PersistenceDirective } from './persistence.directive';
+import { UserInterfaceModule } from '../user-interface/user-interface.module';
 
 const sharedItems = [
-  CommonModule,
-  ReactiveFormsModule,
-  ...materialModules,
+  UserInterfaceModule,
+  PersistenceDirective,
 ];
 
 @NgModule({
-  declarations: [],
-  imports: sharedItems,
+  declarations: [
+    PersistenceDirective,
+  ],
   exports: sharedItems,
+  imports: [
+    UserInterfaceModule,
+  ],
 })
 export class SharedModule { }

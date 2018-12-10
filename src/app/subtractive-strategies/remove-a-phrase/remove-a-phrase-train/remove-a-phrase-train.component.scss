@@ -1,0 +1,28 @@
+a {
+    display: block;
+    width: max-content;
+}
+
+mat-card {
+    $flipTransitionLength: .3s;
+    $flipTransformTransition: transform $flipTransitionLength linear;
+    $flipColorTransitionLength: $flipTransitionLength / 2;
+    $flipColorTransition: color $flipColorTransitionLength;
+    
+    display: inline-block;
+    transform: rotateY(0);
+    transition: $flipTransformTransition, $flipColorTransition ease-out $flipColorTransitionLength;
+    cursor: pointer;
+    
+    &.flipped {
+        color: transparent;
+        transform: rotateY(180deg);
+        transition: $flipTransformTransition, $flipColorTransition ease-in;
+        user-select: none;
+    }
+    
+    &.line {
+        display: block;
+        width: max-content;
+    }
+}

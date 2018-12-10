@@ -1,0 +1,12 @@
+<div *ngFor="let breadcrumb of (breadcrumbs$ | async)">
+  <a
+      [routerLink]="[ breadcrumb.url ]"
+      mat-button
+      class="mat-primary"
+      *ngIf="breadcrumb.show"
+  >
+    {{ breadcrumb.label }}
+  </a>
+  
+  <span *ngIf="breadcrumb.show">&gt;</span>
+</div>

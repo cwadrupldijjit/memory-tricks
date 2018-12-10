@@ -1,11 +1,6 @@
-<form [formGroup]="form">
-  <div>
-    <mat-radio-group formControlName="divisionType">
-      <mat-radio-button value="word">By word</mat-radio-button>
-      <mat-radio-button value="sentence">By sentence</mat-radio-button>
-      <mat-radio-button value="custom">Custom Sections</mat-radio-button>
-    </mat-radio-group>
-  </div>
-</form>
-
-{{ form.controls?.divisionType?.value }}
+<app-breadcrumb></app-breadcrumb>
+<mat-card *ngFor="let phrase of phrases">
+  <span class="phrase-text-preview" style="white-space: pre-wrap">{{ phrase.text }}</span>
+  <a [routerLink]="['./train', phrase.id]" class="mat-primary" mat-raised-button>Train</a>
+  <a [routerLink]="['./' + phrase.id]" mat-button>Edit</a>
+</mat-card>

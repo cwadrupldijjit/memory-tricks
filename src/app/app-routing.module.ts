@@ -5,7 +5,13 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
-  { path: 'subtractive', loadChildren: './subtractive-strategies/subtractive-strategies.module#SubtractiveStrategiesModule' },
+  {
+    path: 'subtractive',
+    loadChildren: './subtractive-strategies/subtractive-strategies.module#SubtractiveStrategiesModule',
+    data: {
+      breadcrumb: 'Subtractive Techniques',
+    },
+  },
   { path: '**', component: NotFoundComponent },
 ];
 

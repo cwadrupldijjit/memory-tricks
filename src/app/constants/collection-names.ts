@@ -1,0 +1,5 @@
+const REMOVE_A_PHRASE = 'REMOVE_A_PHRASE';
+
+export {
+    REMOVE_A_PHRASE,
+};
