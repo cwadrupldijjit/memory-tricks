@@ -103,6 +103,7 @@ export class RemoveAPhraseService {
   
   public addPhrase(phraseData: INewPhrase) {
     phraseData.splits = this.splitPhrase(phraseData).map(fragment => ({ text: fragment, isFlipped: false } as ISplitPhrase));
+    phraseData.completionPercentage = 0;
     return this.indexedDbService.add(REMOVE_A_PHRASE, phraseData) as Promise<IPhrase>;
   }
   
@@ -180,11 +181,11 @@ export interface INewPhrase {
   splits: ISplitPhrase[];
   delimiter?: string;
   splitPoints?: number[];
+  completionPercentage: number;
 }
 
 export interface IPhrase extends INewPhrase {
   id: number;
-  completionPercentage: number;
 }
 
 export interface ISplitPhrase {

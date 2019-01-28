@@ -1,6 +1,7 @@
 <app-breadcrumb></app-breadcrumb>
 <mat-card *ngFor="let phrase of phrases">
   <span class="phrase-text-preview" style="white-space: pre-wrap">{{ phrase.text }}</span>
+  <p>{{ phrase.completionPercentage | percent:'1.0-1' }} complete</p>
   <a [routerLink]="['./train', phrase.id]" class="mat-primary" mat-raised-button>Train</a>
   <a [routerLink]="['./' + phrase.id]" mat-button>Edit</a>
 </mat-card>
