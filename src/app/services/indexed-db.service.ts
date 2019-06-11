@@ -162,7 +162,7 @@ export class IndexedDbService {
   
   private initializeDatabase(): Promise<IDBDatabase> {
     return new Promise<IDBDatabase>((resolve, reject) => {
-      const request = window.indexedDB.open('memory-tricks-db', 4);
+      const request = window.indexedDB.open('memory-tricks-db', 0);
       
       request.onsuccess = onSuccess;
       request.onupgradeneeded = onSuccess;

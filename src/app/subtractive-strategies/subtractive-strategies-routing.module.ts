@@ -6,7 +6,7 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', component: SubtractiveIndexComponent },
   {
     path: 'remove-a-phrase',
-    loadChildren: './remove-a-phrase/remove-a-phrase.module#RemoveAPhraseModule',
+    loadChildren: () => import('./remove-a-phrase/remove-a-phrase.module').then(m => m.RemoveAPhraseModule),
     data: {
       breadcrumb: 'Remove a Phrase',
     },

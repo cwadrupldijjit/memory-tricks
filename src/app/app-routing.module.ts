@@ -7,7 +7,7 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
   {
     path: 'subtractive',
-    loadChildren: './subtractive-strategies/subtractive-strategies.module#SubtractiveStrategiesModule',
+    loadChildren: () => import('./subtractive-strategies/subtractive-strategies.module').then(m => m.SubtractiveStrategiesModule),
     data: {
       breadcrumb: 'Subtractive Techniques',
     },
