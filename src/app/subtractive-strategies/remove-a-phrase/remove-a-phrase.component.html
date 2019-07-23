@@ -1,4 +1,7 @@
 <app-breadcrumb></app-breadcrumb>
+
+<a mat-raised-button class="mat-accent" routerLink="add">Add</a>
+
 <mat-card *ngFor="let phrase of phrases">
   <span class="phrase-text-preview" style="white-space: pre-wrap">{{ phrase.text }}</span>
   <p>{{ phrase.completionPercentage | percent:'1.0-1' }} complete</p>

@@ -1,3 +1,5 @@
+<app-breadcrumb></app-breadcrumb>
+
 <h3>{{ isEditing ? 'Update' : 'Add' }} a phrase</h3>
 
 <form [formGroup]="formGroup">
@@ -7,10 +9,10 @@
     </span>
     <textarea name="text" matInput formControlName="text" persist></textarea>
   </label>
-  
+
   <div class="input-wrapper">
     <span class="label">How do you want to split the phrase?</span>
-    
+
     <p class="description">
       "By word" will split it on each space character.  "By sentence" will split
       it based on every period. "By line" splits it on every new line that isn't
@@ -19,17 +21,17 @@
       text. "Custom split" will give you the ability to choose each place where
       you want to split the text.
     </p>
-    
+
     <mat-radio-group formControlName="splitType" class="mat-primary" persist (change)="updateValidation('delimiter')">
       <mat-radio-button *ngFor="let splitType of splitTypes" color="primary" [value]="splitType.id">{{ splitType.label }}</mat-radio-button>
     </mat-radio-group>
   </div>
-  
+
   <label *ngIf="showDelimiter">
     <span class="label">What character(s) do you want to use to split it apart?</span>
     <input type="text" formControlName="delimiter" persist>
   </label>
-  
+
   <button mat-raised-button type="submit" class="mat-primary" (click)="handleSubmit()">Submit</button>
   <button mat-raised-button (click)="previewSplit()">Preview</button>
 </form>
